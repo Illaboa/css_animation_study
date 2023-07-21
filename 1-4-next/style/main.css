@@ -7,7 +7,9 @@
 .popup .page_num span {color:#fff; padding:5px 0;}
 .popup .page_num .current_num {}
 .popup .page_num .all_num {border-top:1px solid #aaa;}
-.popup .page_pst {position:absolute; width:100%; bottom:20px; display: flex; flex-flow: column wrap;}
+.popup .page_pst {
+    position:absolute; width:100%; bottom:20px; display: flex; flex-flow: column wrap;
+}
 .popup .page_pst a {}
 .popup .page_pst a.page_top {}
 .popup .page_pst a.page_btm {margin-top:-2px;}
@@ -41,18 +43,32 @@ header nav > ul > li > .sub li a {}
 header nav > ul > li > .sub li a:hover {color:#ddd;}
 /*section*/
 section {}
-section .sec1 {background-image:url(../images/main_bg_01.jpg)}
-section .sec2 {background-image:url(../images/main_bg_02_3.jpg)}
+section .sec1 {
+    background-image:url(../images/main_bg_01.jpg);
+}
+section .sec2 {
+    /* background-image:url(../images/main_bg_02_3.jpg); */
+    
+}
 section .sec3 {background-image:url(../images/main_bg_03.jpg)}
 section > div {
     background-size:cover; background-position:center;
     text-align:center; height:100vh; width:100%; 
     display:flex; flex-flow:column wrap; justify-content:center; color:#fff;
+    background-attachment: fixed;
 }
 section > div:nth-child(2) {
-    background-repeat:no-repeat;
-    background-size:cover, cover;
-    background-position:40% center, center;
+    background:
+    url(../images/main_bg_02_2.png),
+    url(../images/main_bg_02_4.png),
+    url(../images/main_bg_02_3.jpg);
+background-size:
+    auto,
+    auto,
+    cover;
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: scroll,scroll,fixed; /* 이미지 태그들 순서로 속성 작성 */
 }
 section > div h1 {
     font-family: 'Pattaya', sans-serif;
