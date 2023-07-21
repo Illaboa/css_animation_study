@@ -5,23 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>애니메이션1</title>
     <style>
-        #btn {background: aqua;}
-        #btn:hover {background: yellow;}
+        /* transition: 애니메이션적용속성 지속시간; */
+        #btn1 {
+            background: aqua;
+            width:100px; height: 150px; border-radius: 10%;
+            border:5px solid #000; padding: 10px;
+            /* 지속시간이 각 속성마다 다를 경우 */
+            /* transition:background 0.5s; width 0.8s; */
+            /* 지속시간이 모든 속성에 일치할 때 */
+            transition:all 0.5s;
+            position: relative; left:0;
+        }
+        #btn1:hover {
+            border:10px solid blue; padding: 30px;
+            background: yellow;  border-radius: 50%;
+            width: 150px; height: 200px; left:100px;
+        }
+        #btn2 {
+
+        }
+        #btn2:hover {
+        }
+       /*  transform 연습 */
+        #btn3 {
+            padding: 10px;
+        }
+        /* btn3에 마우스를 올렸을 때 그 형제 box가 변경된다. */
+        #btn3:hover ~.box {
+            background: pink;
+            /* transfotm:속성(값) 속성(값) */
+            /* transfotm:속성 자식, 자손에게도 영향을 준다. */
+            /* transform: scaleX(2) scaleY(0.5);/* 1=실제 크기의 100%*/
+            /* transform:rotate(-60deg) scale(1.5); */
+            transform: skewY(60deg);
+            transform: translateY(200px);
+        }
+        .box {
+            width: 100px; height: 100px;
+            background: yellow;
+            transition:transform 0.5s;
+            /* box에 애니메이션이 적용되는 것이니 .자식 태그에 속성 기입 */
+            /* rotate 자체가 값이기 때문에 트랜스폼으로 기입 */
+        }
+        #btn_4 {}
+        .target {
+            display: block;/* span(인라인) 이니까 나타내려면 display 적용 */
+            width: 100px; height: 100px;
+            transition: all 0.5s;
+            background: #222; border-radius: 10%;
+        }
+        #btn_4:hover ~.target {
+            transform-origin: center bottom;
+            transform: rotate(60deg);
+        }
+
     </style>
 </head>
 <body>
     <ul>
         <li>
-            <button id="btin1">animation1</button>
+            <button id="btn1">animation1</button>
         </li>
         <li>
-
+            <button id="btn2">animation2</button>
         </li>
         <li>
-
+            <button id="btn3" type="button">transform1</button>
+            <hr>
+            <div class="box">box</div>
         </li>
         <li>
-
+            <button id="btn_4" type="button">transform2</button>
+            <hr>
+            <span class="target">적용대상</span>
         </li>
         <li>
 
